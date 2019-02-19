@@ -11,6 +11,13 @@
 
 Imagine you are a data engineer working for an online pharmacy. You are asked to generate a list of all drugs, the total number of UNIQUE individuals who prescribed the medication, and the total drug cost, which must be listed in descending order based on the total drug cost and if there is a tie, drug name in ascending order. 
 
+# Approach
+
+Since the output of this problem requires a set of unique drug names, it is appropriate to use a dictionary (hash map) `drug_dict` with key is the `drug_name`. Further more, since we only count the number of UNIQUE prescribers for each drug, it is reasonable to use a dictionary for each `drug_name`. These dictionaries have the tuple `(prescriber_last_name, prescriber_first_name)` as key. 
+
+The program scans through each line of the txt input file. For each line it processes the string to obtain the `prescriber_last_name`, `prescriber_first_name`, `drug_name` and `drug_cost` information. It then checks if `drug_name` is in `drug_dict`. If it's not, add an item with key is `drug_name` and value is a list of 2 elements: first is a dict with `(pres_first, pres_last)` as key, and second is an int variable `cost` (we can do float too, but then there would be issue with the first test file, so I simply round all float values to integers). If `drug_name` is in `drug_dict`, update the total cost by adding `cost`, and add a `(pres_first, pres_last):None` key-value pair to the inner dictionary if `(pres_first, pres_last)` is not there yet.
+
+
 # Input Dataset
 
 The original dataset was obtained from the Centers for Medicare & Medicaid Services. It provides information on prescription drugs prescribed by individual physicians and other health care providers. The dataset identifies prescribers by their ID, last name, and first name.  It also describes the specific prescriptions that were dispensed at their direction, listed by drug name and the cost of the medication. 
