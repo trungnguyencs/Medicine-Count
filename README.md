@@ -54,10 +54,10 @@ The directory structure for my submission:
 # Repo directory structure
 
 My program was broken down into the following functions:
-`get_file_path()`: Get input and output files. Notify an error if either not enough arguments are entered or cannot open input file
-`sum_total_cost(pres_last, pres_first, drug_name, cost, drug_dict)`: Contruct the dictionary `drug_dict` and the inner dictionary `pres_dict` 
-`ord_cost(drug_dict)`: Order the dictionary by `drug_name` and `cost`
-`main()`: Call `get_file_path()` so get the txt file contents, then scans through each line. For each line it processes the string to obtain the `prescriber_last_name`, `prescriber_first_name`, `drug_name` and `drug_cost` information and print "Line is corrupt" if it can't get one or more field. Then it calls `sum_total_cost()` to construc the dict and `ord_cost()` to sort it. Finally it writes the output to output txt file.
+* `get_file_path()`: Get input and output files. Notify an error if either not enough arguments are entered or cannot open input file
+* `sum_total_cost(pres_last, pres_first, drug_name, cost, drug_dict)`: Contruct the dictionary `drug_dict` and the inner dictionary `pres_dict` 
+* `ord_cost(drug_dict)`: Order the dictionary by `drug_name` and `cost`
+* `main()`: Call `get_file_path()` so get the txt file contents, then scans through each line. For each line it processes the string to obtain the `prescriber_last_name`, `prescriber_first_name`, `drug_name` and `drug_cost` information and print "Line is corrupt" if it can't get one or more field. Then it calls `sum_total_cost()` to construc the dict and `ord_cost()` to sort it. Finally it writes the output to output txt file.
 
 # Contact
 trung.n@ucsc.edu
