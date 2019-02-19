@@ -17,10 +17,10 @@ def main():
             sum_total_cost(pres_last, pres_first, drug_name, cost, drug_dict)    
             # except: 
             #     print('Line %d is corrupt!' %(i))
-        ord_dict = ord_cost(drug_dict)
+        ord_lst = ord_cost(drug_dict)
     with open(f_out, 'w') as file:  
         file.write('drug_name,num_prescriber,total_cost\n')
-        for k,v in ord_dict:
+        for k,v in ord_lst:
             file.write(str(k) + ',' + str(len(v[0])) + ',' + str(v[1]) + '\n')
 
 def get_file_path(): 
@@ -41,9 +41,11 @@ def sum_total_cost(pres_last, pres_first, drug_name, cost, drug_dict):
     else: 
         drug_dict[drug_name] = [{(pres_first, pres_last): None}, cost]
 
-def ord_cost(drug_dict, desc=True):  
-    drug_lst = [(drug, [pres_dict, cost]) for drug, [pres_dict, cost] in drug_dict.items()]
-    return sorted(drug_lst, key=lambda x: x[1][1], reverse=desc)
+def ord_cost(drug_dict):  
+    drug_lst = [(drug_name, [pres_dict, cost]) for drug_name, [pres_dict, cost] in drug_dict.items()]
+    # The next 2 lines guarantee drug_dict is sorted by total cost then by drug name 
+    sort_temp = sorted(drug_lst, key=lambda x: (x[0]), reverse=False)
+    return sorted(sort_temp, key=lambda x: (x[1][1]), reverse=True)
 
 if __name__ == '__main__':  
     main()
