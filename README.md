@@ -7,41 +7,14 @@
 1. [Tips on getting an interview](README.md#tips-on-getting-an-interview)
 1. [Questions?](README.md#questions?)
 
+
 # Problem
 
 Imagine you are a data engineer working for an online pharmacy. You are asked to generate a list of all drugs, the total number of UNIQUE individuals who prescribed the medication, and the total drug cost, which must be listed in descending order based on the total drug cost and if there is a tie, drug name in ascending order. 
 
-Disclosure: The projects that Insight Data Engineering Fellows work on during the program are much more complicated and interesting than this coding challenge. This challenge only tests you on the basics. 
-
-# Steps to Submit your solution
-* To submit your entry please use the link you received in your coding challenge invite email
-* You will only be able to submit through the link one time 
-* Do NOT attach a file - we will not admit solutions which are attached files 
-* Do NOT send your solution over an email - We are unable to accept coding challenges that way
-
-### Creating private repositories
-To avoid plagiarism and any wrongdoing, we request you to submit a private repository of your code. Both GitHub and Bitbucket offer free unlimited private repositories at no extra cost.
-* Create a private repository on GitHub or Bitbucket with the given repository structure. Here is how you will be sharing your private repositories for us to see once you are ready to submit.
-* Add "insight-cc-bot" as a collaborator in your project. 
-  * [How to add collaborators on GitHub?](https://help.github.com/articles/inviting-collaborators-to-a-personal-repository/)
-  * [How to add users and groups as collaborators in Bitbucket?](https://confluence.atlassian.com/bitbucket/grant-repository-access-to-users-and-groups-221449716.html)
-* **We will NOT be grading submissions we do not have access to.**
-
-### Submitting a link to your repository
-* Use the submission box to enter the link to your GitHub or Bitbucket repo ONLY
-* Link to the specific repo for this project, not your general profile
-* Put any comments in the README inside your project repo, not in the submission box
-
-
 # Input Dataset
 
-The original dataset was obtained from the Centers for Medicare & Medicaid Services but has been cleaned and simplified to match the scope of the coding challenge. It provides information on prescription drugs prescribed by individual physicians and other health care providers. The dataset identifies prescribers by their ID, last name, and first name.  It also describes the specific prescriptions that were dispensed at their direction, listed by drug name and the cost of the medication. 
-
-# Instructions
-
-We designed this coding challenge to assess your coding skills and your understanding of computer science fundamentals. They are both prerequisites of becoming a data engineer. To solve this challenge you might pick a programing language of your choice (preferably Python, Scala, Java, or C/C++ because they are commonly used and will help us better assess you), but you are only allowed to use the default data structures that come with that programming language (you might use I/O libraries). For example, you can code in Python, but you should not use Pandas or any other external libraries. 
-
-***The objective here is to see if you can implement the solution using basic data structure building blocks and software engineering best practices (by writing clean, modular, and well-tested code).*** 
+The original dataset was obtained from the Centers for Medicare & Medicaid Services. It provides information on prescription drugs prescribed by individual physicians and other health care providers. The dataset identifies prescribers by their ID, last name, and first name.  It also describes the specific prescriptions that were dispensed at their direction, listed by drug name and the cost of the medication. 
 
 # Output 
 
@@ -95,7 +68,7 @@ If your solution requires additional libraries, environments, or dependencies, y
 
 ## Repo directory structure
 
-The directory structure for your repo should look like this:
+The directory structure for my submission:
 
     ├── README.md 
     ├── run.sh
@@ -119,7 +92,6 @@ The directory structure for your repo should look like this:
                 |── output
                     └── top_cost_drug.txt
 
-**Don't fork this repo** and don't use this `README` instead of your own. The content of `src` does not need to be a single file called `pharmacy-counting.py`, which is only an example. Instead, you should include your own source files and give them expressive names.
 
 ## Testing your directory structure and output format
 
@@ -140,14 +112,6 @@ On success:
 
     [PASS]: test_1
     [Thu Mar 30 16:25:57 PDT 2017] 1 of 1 tests passed
-
-
-
-One test has been provided as a way to check your formatting and simulate how we will be running tests when you submit your solution. We urge you to write your own additional tests. `test_1` is only intended to alert you if the directory structure or the output for this test is incorrect.
-
-Your submission must pass at least the provided test in order to pass the coding challenge.
-
-For a limited time we also are making available a <a href="http://ec2-18-210-131-67.compute-1.amazonaws.com/test-my-repo-link">website</a> that will allow you to simulate the environment in which we will test your code. It has been primarily tested on Python code but could be used for Java and C++ repos. Keep in mind that if you need to compile your code (e.g., javac, make), that compilation needs to happen in the `run.sh` file of your code repository. For Python programmers, you are able to use Python2 or Python3 but if you use the later, specify `python3` in your `run.sh` script.
 
 # Contact
 trung.n@ucsc.edu
