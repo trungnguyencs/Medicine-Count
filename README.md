@@ -1,9 +1,9 @@
 # Table of Contents
 1. [Problem](README.md#problem)
 1. [Approach](README.md#approach)
+1. [Program structure](README.md#program-structure)
 1. [Run instruction](README.md#run-instruction)
 1. [Repo directory structure](README.md#repo-directory-structure)
-1. [Program structure](README.md#repo-directory-structure)
 1. [Contact](README.md#contact)
 
 
@@ -20,6 +20,14 @@ The program scans through each line of the txt input file. For each line it proc
 Next, I copy the `drug_name`, `cost` (total cost of a drug), and `len(pres_dict)` (number of distict prescribers for each drug) to a list and sort it twice: first by `drug_name`, then by `cost`. This guarantees that if there is a tie in cost, drug name is in sorted order. The time complexity for this block is `O(klog(k))`, where `k` is the number of distinct values `drug_name`.
 
 I then use the sorted list above to write to output file. This takes `O(k)`, so in general, the runtime of my program is either `O(n)` or `O(klog(k))`, whichever greater, with `n` is the number of lines in the input txt file, and `k` is the number of distinct values `drug_name`
+
+# Program structure
+
+My program was broken down into the following functions:
+* `get_file_path()`: Get input and output files. Notify an error if either not enough arguments are entered or cannot open input file
+* `sum_total_cost(pres_last, pres_first, drug_name, cost, drug_dict)`: Contruct the dictionary `drug_dict` and the inner dictionary `pres_dict` 
+* `ord_cost(drug_dict)`: Order the dictionary by `drug_name` and `cost`
+* `main()`: Call `get_file_path()` so get the txt file contents, then scans through each line. For each line it processes the string to obtain the `prescriber_last_name`, `prescriber_first_name`, `drug_name` and `drug_cost` information and print "Line is corrupt" if it can't get one or more fields. Then it calls `sum_total_cost()` to construct the dict and `ord_cost()` to sort it. Finally it writes the output to output txt file.
 
 # Run instruction
 
@@ -50,14 +58,6 @@ The directory structure for my submission:
                 │   └── your-own-input-for-itcont.txt
                 |── output
                     └── top_cost_drug.txt
-
-# Repo directory structure
-
-My program was broken down into the following functions:
-* `get_file_path()`: Get input and output files. Notify an error if either not enough arguments are entered or cannot open input file
-* `sum_total_cost(pres_last, pres_first, drug_name, cost, drug_dict)`: Contruct the dictionary `drug_dict` and the inner dictionary `pres_dict` 
-* `ord_cost(drug_dict)`: Order the dictionary by `drug_name` and `cost`
-* `main()`: Call `get_file_path()` so get the txt file contents, then scans through each line. For each line it processes the string to obtain the `prescriber_last_name`, `prescriber_first_name`, `drug_name` and `drug_cost` information and print "Line is corrupt" if it can't get one or more field. Then it calls `sum_total_cost()` to construc the dict and `ord_cost()` to sort it. Finally it writes the output to output txt file.
 
 # Contact
 trung.n@ucsc.edu
