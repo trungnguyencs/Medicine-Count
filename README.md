@@ -1,7 +1,7 @@
 # Table of Contents
 1. [Problem](README.md#problem)
 1. [Approach](README.md#approach)
-1. [Run instruction](README.md#run-instructions)
+1. [Run instruction](README.md#run-instruction)
 1. [Repo directory structure](README.md#repo-directory-structure)
 1. [Tips on getting an interview](README.md#tips-on-getting-an-interview)
 1. [Contact](README.md#contact)
@@ -21,7 +21,7 @@ Next, I copy the `drug_name`, `cost` (total cost of a drug), and `len(pres_dict)
 
 I then use the sorted list above to write to output file. This takes `O(k)`, so in general, the runtime of my program is either `O(n)` or `O(klog(k))`, whichever greater, with `n` is the number of lines in the input txt file, and `k` is the number of distinct values `drug_name`
 
-# Run Instruction
+# Run instruction
 
 Either type `run.sh` or `python3 ./src/medicine_count.py ./input/itcont.txt ./output/top_cost_drug.txt` in your Terminal
 
