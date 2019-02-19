@@ -149,5 +149,5 @@ Your submission must pass at least the provided test in order to pass the coding
 
 For a limited time we also are making available a <a href="http://ec2-18-210-131-67.compute-1.amazonaws.com/test-my-repo-link">website</a> that will allow you to simulate the environment in which we will test your code. It has been primarily tested on Python code but could be used for Java and C++ repos. Keep in mind that if you need to compile your code (e.g., javac, make), that compilation needs to happen in the `run.sh` file of your code repository. For Python programmers, you are able to use Python2 or Python3 but if you use the later, specify `python3` in your `run.sh` script.
 
-# Questions?
-Email us at cc@insightdataengineering.com
+# Contact
+trung.n@ucsc.edu
