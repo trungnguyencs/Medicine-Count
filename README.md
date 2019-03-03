@@ -13,18 +13,18 @@ Imagine you are a data engineer working for an online pharmacy. You are asked to
 
 # Approach
 
-Since the output of this problem requires a set of unique drug names, it is appropriate to use a dictionary (hash map) `drug_dict` with key is the `drug_name`. Further more, since we only count the number of UNIQUE prescribers for each drug, it is reasonable to use a dictionary for each `drug_name`. These dictionaries have the tuple `pres_name` (created by concatinating (`pres_first_name` and `pres_last_name`)) as key. 
+* Since the output of this problem requires a set of unique drug names, it is appropriate to use a dictionary (hash map) `drug_dict` with key is the `drug_name`. Further more, since we only count the number of UNIQUE prescribers for each drug, it is reasonable to use a dictionary for each `drug_name`. These dictionaries have the tuple `pres_name` (created by concatinating `prescriber_last_name` and `prescriber_first_name`) as key. 
 
-The program scans through each line of the txt input file. For each line it processes the string to obtain the `prescriber_last_name`, `prescriber_first_name`, `drug_name` and `drug_cost` information. 
+* The program scans through each line of the txt input file. For each line it processes the string to obtain the `prescriber_last_name`, `prescriber_first_name`, `drug_name` and `drug_cost` information. 
 
-It then checks if `drug_name` is in `drug_dict`. If it's not, add an item with key is `drug_name` and value is a list of 2 elements: first is a dict with `pres_name` as key, and second is an int variable `cost` (we can do float too, but then there would be issue with the first test file, so I simply round all float values to integers). If `drug_name` is in `drug_dict`, update the total cost by adding `cost`, and add a `pres_name:None` key-value pair to the inner dictionary `pres_dict` if `(pres_first, pres_last)` is not there yet. 
+* It then checks if `drug_name` is in `drug_dict`. If it's not, add an item with key is `drug_name` and value is a list of 2 elements: first is a dict with `pres_name` as key, and second is an int variable `cost` (we can do float too, but then there would be issue with the first test file, so I simply round all float values to integers). If `drug_name` is in `drug_dict`, update the total cost by adding `cost`, and add a `pres_name:None` key-value pair to the inner dictionary `pres_dict` if `(pres_first, pres_last)` is not there yet. 
 
-Since the cost of looking up to see if a key exists in a dictionary is `O(1)`, assume that we have `n` lines in the input txt file, then the cost of this whole block is `O(n)`.
+* Since the cost of looking up to see if a key exists in a dictionary is `O(1)`, assume that we have `n` lines in the input txt file, then the cost of this whole block is `O(n)`.
 
-Next, I copy the `drug_name`, `total_cost` (total cost of a drug), and `len(pres_dict)` (number of distict prescribers for each drug) to a list and sort it by `cost` (ascending order) and `drug_name` (descending order). In order to do this, I used a helper function `cost_name_compare` for sorted . This guarantees that if there is a tie in cost, drug name is in sorted order. 
+* Next, I copy the `drug_name`, `total_cost` (total cost of a drug), and `len(pres_dict)` (number of distict prescribers for each drug) to a list and sort it by `cost` (ascending order) and `drug_name` (descending order). In order to do this, I used a helper function `cost_name_compare` for sorted . This guarantees that if there is a tie in cost, drug name is in sorted order. 
 The time complexity for this block is `O(klog(k))`, where `k` is the number of distinct values `drug_name`.
 
-I then use the sorted list above to write to output file. This takes `O(k)`, so in general, the runtime of my program is either `O(n)` or `O(klog(k))`, whichever greater, with `n` is the number of lines in the input txt file, and `k` is the number of distinct values `drug_name`
+* I then use the sorted list above to write to output file. This takes `O(k)`, so in general, the runtime of my program is either `O(n)` or `O(klog(k))`, whichever greater, with `n` is the number of lines in the input txt file, and `k` is the number of distinct values `drug_name`
 
 # Program structure
 
