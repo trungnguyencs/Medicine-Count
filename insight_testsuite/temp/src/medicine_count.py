@@ -79,17 +79,14 @@ def cost_name_compare(drug1, drug2):
     # drug1 is "smaller" than drug2 if it has a larger total_cost,
     # or if their costs are equal and drug1 has a earlier dictionary name order
 
-    if cost1 > cost2:
+    if cost1 != cost2:
+        return cost2 - cost1
+    if drug_name1 < drug_name2:
         return -1
-    elif cost2 > cost1: 
+    elif drug_name1 < drug_name2:
         return 1
     else:
-        if drug_name1 < drug_name2:
-            return -1
-        elif drug_name1 < drug_name2:
-            return 1
-        else:
-            return 0
+        return 0
 
 if __name__ == '__main__':  
     main()
