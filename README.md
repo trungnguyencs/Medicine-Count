@@ -17,7 +17,7 @@ Imagine you are a data engineer working for an online pharmacy. You are asked to
 
     * The program scans through each line of the txt input file. For each line it processes the string to obtain the `prescriber_last_name`, `prescriber_first_name`, `drug_name` and `drug_cost` information. 
 
-    * It then checks if `drug_name` is in `drug_dict`. If it's not, add an item with key is `drug_name` and value is a list of 2 elements: first is a dict with `pres_name` as key, and second is an int variable `cost` (we can do float too, but then there would be issue with the first test file, so I simply round all float values to integers). If `drug_name` is in `drug_dict`, update the total cost by adding `cost`, and add a `pres_name:None` key-value pair to the inner dictionary `pres_dict` if `(pres_first, pres_last)` is not there yet. 
+    * It then checks if `drug_name` is in `drug_dict`. If it's not, add an item with key is `drug_name` and value is a list of 2 elements: first is a dict with `pres_name` as key, and second is an int variable `cost` (we can do float too, but then there would be issue with the first test file, so I simply round all float values to integers). If `drug_name` is in `drug_dict`, update the total cost by adding `cost`, and add a `pres_name:None` key-value pair to the inner dictionary `pres_dict` if `pres_name` is not there yet. 
 
     * Since the cost of looking up to see if a key exists in a dictionary is `O(1)`, assume that we have `n` lines in the input txt file, then the cost of this whole block is `O(n)`.
 
@@ -31,7 +31,7 @@ The time complexity for this block is `O(klog(k))`, where `k` is the number of d
 My program was broken down into the following functions:
 * `get_file_path()`: Get input and output files. Notify an error if either not enough arguments are entered or cannot open input file
 * `extract_info(line)`: Get `drug_name`, `cost`, and `pres_name` from each line of the txt file
-* `sum_total_cost(pres_name, drug_name, cost, drug_dict)`: Contruct the dictionary `drug_dict` and the inner dictionary `pres_dict` 
+* `sum_total_cost(pres_name, drug_name, cost, drug_dict)`: Construct the dictionary `drug_dict` and the inner dictionary `pres_dict` 
 * `sort_drug(drug_dict)`: Order the dictionary by `drug_name` and `total_cost`
 * `cost_name_compare(drug1, drug2)`: helper function for `sort_drug`, compares 2 drugs by total_cost, if they have equal total_cost then compare their drug_name. `drug1` is "smaller" than `drug2` if it has a larger total_cost, or if their costs are equal and drug1 has a earlier dictionary name order
 * `main()`: Call `get_file_path()` so get the txt file contents, then scans through each line. For each line it processes the string to obtain the `prescriber_last_name`, `prescriber_first_name`, `drug_name` and `drug_cost` information and print "Line is corrupt" if it can't get one or more fields. Then it calls `sum_total_cost()` to construct the dict and `ord_cost()` to sort it. Finally it writes the output to output txt file.
