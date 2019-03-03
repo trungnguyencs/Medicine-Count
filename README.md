@@ -2,7 +2,7 @@
 1. [Problem](README.md#problem)
 1. [Approach](README.md#approach)
 1. [Program structure](README.md#program-structure)
-1. [Run instruction](README.md#run-instruction)
+1. [Run the code](README.md#run-the-code)
 1. [Repo directory structure](README.md#repo-directory-structure)
 1. [Contact](README.md#contact)
 
@@ -36,7 +36,7 @@ My program was broken down into the following functions:
 * `cost_name_compare(drug1, drug2)`: helper function for `sort_drug`, compares 2 drugs by total_cost, if they have equal total_cost then compare their drug_name. `drug1` is "smaller" than `drug2` if it has a larger total_cost, or if their costs are equal and drug1 has a earlier dictionary name order
 * `main()`: Call `get_file_path()` so get the txt file contents, then scans through each line. For each line it processes the string to obtain the `prescriber_last_name`, `prescriber_first_name`, `drug_name` and `drug_cost` information and print "Line is corrupt" if it can't get one or more fields. Then it calls `sum_total_cost()` to construct the dict and `ord_cost()` to sort it. Finally it writes the output to output txt file.
 
-# Run instruction
+# Run the code
 
 Either type `run.sh` or `python3 ./src/medicine_count.py ./input/itcont.txt ./output/top_cost_drug.txt` in your Terminal
 
