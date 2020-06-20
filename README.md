@@ -65,6 +65,3 @@ The directory structure for my submission:
                 │   └── your-own-input-for-itcont.txt
                 |── output
                     └── top_cost_drug.txt
-
-# Contact
-trung.n@ucsc.edu
